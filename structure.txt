@@ -1,0 +1,29 @@
+GameBoard() IIFE :
+variables :
+rows int
+cols int 
+board array
+methods :
+getBoard (return board)
+printBoard(print the 2d array)
+FillCell (take row , col , player) and fill the cell with his symbol
+
+player() factory function :
+return an object player with two variables name and symbol
+
+GameController() IIFE:
+p1 (player)
+p2 (player)
+board(GameBoard)
+players[] array that contain player name symbol and score and boolean isWinner (default false)
+methods :
+switchTurn() used to switch turns or active player
+getActivePlayer() return the active player
+printNewBoard() print the current board it uses Gameboard.printBoard()
+playMatch() get executed only if neither players score are 3 
+increaseScore() raise player score by one
+playRound() not built yet
+getPlayer() return player usin his symbol so i can know who won a round
+getWinner() return winner using boolean isWinner
+checkTie() used to check for checkTie
+checkWInner() used to check for winner

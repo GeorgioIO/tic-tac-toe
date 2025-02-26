@@ -93,9 +93,30 @@ const GameController = (function(p1 , p2){
         playRound()
     }
 
-    const playRound = () => 
+    const playTurn = (row , col) => 
     {
+        let player = getActivePlayer();
+        if(Gameboard.getBoard[row][col] == "-") // Cell is empty
+        {
+            Gameboard.fillCell(row , col , player.symbol);
+            printNewBoard();
+        }
+        else
+        {
+            alert("Cell is already filled")
+        }
+    }
 
+    const playRound = (row , col) => 
+    {
+        while(true)
+        {
+            if(checkWin())
+            {
+                increaseScore()
+                
+            }
+        }
     }
 
     const checkTie = () =>
@@ -121,7 +142,7 @@ const GameController = (function(p1 , p2){
             let row = Gameboard.getBoard()[i];
             if(row.every(val => val === row[0] && row[0] != "-"))
             {
-                console.log(`winner is ${getPlayer(row[0])}`)
+                console.log(`winner is ${getPlayer(row[0]).name}`)
                 return true;
             }
         }
@@ -134,11 +155,27 @@ const GameController = (function(p1 , p2){
             let row = transposedBoard[i];
             if(row.every(val => val === row[0] && row[0] != "-"))
             {
-                console.log(`winner is ${getPlayer(row[0])}`)
+                console.log(`winner is ${getPlayer(row[0]).name}`)
                 return true;
             }
         }
 
+        
+
+        // Check diagonal wins
+        let board = Gameboard.getBoard();
+        let mainDiagonalWin = board.every((row, index) => row[index] === board[0][0] && board[0][0] !== "-");
+        let antiDiagonalWin = board.every((row, index) => row[board.length - 1 - index] === board[0][board.length - 1] && board[0][board.length - 1] !== "-");
+
+        if (mainDiagonalWin) {
+            console.log(`Winner is ${getPlayer(board[0][0]).name}`);
+            return true;
+        }
+
+        if (antiDiagonalWin) {
+            console.log(`Winner is ${getPlayer(board[0][board.length - 1]).name}`);
+            return true;
+        }
         return false;
     }
     
