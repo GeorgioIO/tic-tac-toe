@@ -1,0 +1,450 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+*
+{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    outline: red 1px solid;
+}
+
+:root
+{
+    /* FONTS */
+    --general-font : "Inter" , serif;
+}
+
+@keyframes SlideOut {
+    0%{
+        opacity: 1;
+        transform: translateY(0px);
+    }
+    
+    100%
+    {
+        opacity: 0.5;
+        transform: translateY(-3000px);
+    }
+    
+}
+
+@keyframes SlideIn {
+    0%{
+        opacity: 0;
+        transform: translateY(3000px);
+    }
+    
+    100%
+    {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+    
+}
+
+@keyframes messageIn {
+    0%{
+        transform: translateY(-50px);
+    }
+
+    100%
+    {
+        transform: translateY(0px);
+    }
+}
+
+@keyframes messageBar {
+    0%{
+        width: 0%;
+    }
+
+    100%{
+        width: 100%;
+    }
+} 
+
+.messageBar{
+    animation: messageBar 600ms ease-in-out forwards;
+}
+
+.messageIn
+{
+    animation: messageIn 600ms ease-in-out forwards;
+}
+
+.slideOut
+{
+    animation: SlideOut 600ms ease-in-out forwards;
+}
+
+.slideIn
+{
+    animation: SlideIn 600ms ease-in-out forwards;
+}
+
+html
+{
+    min-height: 100%;
+}
+
+body
+{
+    width: 100%;
+    height: 100vh; 
+    background-color: whitesmoke;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: var(--general-font);
+    overflow-x: hidden;
+    position: relative;
+}
+
+#particles-js {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+form
+{
+    background-color: whitesmoke;
+    border: 2px solid #ff4500;
+    width: 400px;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+    border-radius: .85rem;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    box-shadow: 5px 5px 0px 0px #4b0082;
+}
+
+form select,
+form button
+{
+    cursor: pointer;
+}
+
+.header
+{
+    height: 50px;
+    width: 100%;
+    text-align: center;
+    font-size: 1.2rem;
+    /* background-color: red; */
+}
+
+#me
+{
+    font-size: 0.75rem;
+}
+
+.body{
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 120px;
+    /* background-color: #4b0082; */
+}
+
+.body > div
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    justify-content: space-evenly;
+}
+
+.body > div > *
+{
+    width: 130px;
+}
+
+.player-one > h4,
+.player-two > h4
+{
+    text-align: center;
+}
+
+.player-one > input,
+.player-two > input,
+.player-one > select,
+.player-two > select
+{
+    border: 2px solid black;
+    border-radius: .35rem;
+    height: 30px;
+    padding: .30em;
+    font-family: var(--general-font);
+}
+
+.footer
+{
+    width: 100%;  
+    display: flex;
+    justify-content: center;
+}
+
+.footer > button
+{
+    width: 150px;
+    height: 35px;
+    font-family: var(--general-font);
+    border-radius: .45rem;
+    background: transparent;
+    border: 2px solid black;
+}
+
+.game-container
+{
+    background-color: white;
+    display: flex;
+    gap: 30px;
+    height: auto;
+    width: auto;
+    box-shadow: 5px 5px 0px 0px black;
+    border-radius: .65rem;
+    padding: 15px;
+    display: none;
+    transform: translateY(3000px);
+}
+
+.control
+{
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.sub-title
+{
+    font-weight: bold;
+}
+
+.control > .title
+{
+    font-size: 1.5rem;
+}
+
+
+.control > .players
+{
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.players > .player-information
+{
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 75px 10px 40px 40px;
+    gap: 20px;
+}
+
+.player-information > .score
+{
+    width: 40px;
+    height: 30px;
+    border: 1px solid black;
+    border-radius: .45rem;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.player-information > .turn
+{
+    width: 40px;
+    height: 30px;
+    border-radius: .45rem;
+    position: relative;
+}
+
+#player1-information > .turn{
+    background-color: green;
+}
+
+#player2-information > .turn{
+    background-color: red;
+}
+
+.score::before
+{
+    content: "Score";
+    position: absolute;
+    top: -20px;
+    left: 0;
+}
+
+.turn::before
+{
+    content: "Turn";
+    position: absolute;
+    top: -20px;
+    left: 0;
+}
+
+
+.rounds
+{
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.control-footer
+{
+    display: flex;
+    align-items: center;
+    gap: 60px;
+}
+
+.control-footer p{
+    width: 100px;
+    text-wrap: nowrap;
+}
+
+.control-footer > .buttons
+{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.control-footer > .buttons > button{
+    width: 100px;
+    height: 30px;
+    border: 1px solid black;
+    cursor: pointer;
+    box-shadow: 2px 2px 0px 0px black;
+    border-radius: .35rem;
+    font-family: var(--general-font);
+}
+
+.board
+{
+    display: grid;
+    grid-template-columns: repeat(3, 150px);
+    grid-template-rows: repeat(3, 150px);
+    grid-auto-flow: row;
+    gap: 15px;
+    background-color: indigo;
+}
+
+.board > button
+{
+    background-color: #FFFFFF;
+    border: none;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: border 500ms ease-in-out;
+    font-size: 3rem;
+}
+
+.board > button:hover
+{
+    border: 2px solid #ff4500;
+}
+
+
+.game-message
+{
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    transform: translateY(-50px);
+}
+
+.game-message.bar::before
+{
+    content: "";
+    width: 0%;
+    height: 3px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: white;
+    z-index: 5;
+    animation: messageBar 8s ease-in-out forwards;
+}
+
+@media (max-width:865px)
+{
+
+    body
+    {
+        padding: 15px;
+    }
+
+    .game-container
+    {
+        width: 100%;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .board
+    {
+    grid-template-columns: repeat(3, 120px);
+    grid-template-rows: repeat(3, 120px);
+    }
+
+}
+
+@media (max-width:742px)
+{
+
+    body
+    {
+        height: 130vh;
+    }
+
+    .game-container
+    {
+        flex-direction: column-reverse;
+        width: auto;
+    }
+
+    .control
+    {
+        width: 100%;
+    }
+    .board
+    {
+    grid-template-columns: repeat(3, 100px);
+    grid-template-rows: repeat(3, 100px);
+    }
+
+}
+
+@media (max-width:442px)
+{
+    .game-container
+    {
+        width: 100%;
+    }
+
+    .board
+    {
+    grid-template-columns: repeat(3, 80px);
+    grid-template-rows: repeat(3, 80px);
+    }
+
+}

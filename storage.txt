@@ -1,0 +1,11 @@
+    const playMatch = () =>
+    {
+        if(players.length === 0) return false;
+
+        if(players[0].score === 3 || players[1].score === 3)
+        {
+            console.log(`Match over! ${getWinner().name} has already won.`);
+            return
+        }
+        playRound()
+    }

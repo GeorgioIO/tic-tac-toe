@@ -5,9 +5,96 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tic Tac Toe</title>
     <link rel="stylesheet" href="styles/styles.css">
-    <script defer src="script/script.js"></script>
+    <script defer src="script/gameflow.js"></script>
+    <script defer src="script/particles.js"></script>
 </head>
 <body>
-    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.js"></script>
+    <div id="particles-js"></div>
+    <div class="game-message">[...]</div>
+    <form style="display: flex;" id="setup">
+        <div class="header">
+            <h2>Tic Tac Toe <span id="me">By georgio jabbour</span></h2>
+        </div>
+
+        <div class="body">
+            <div class="player-one">
+                <h4>Player 1</h4>
+                <input type="text" placeholder="Your name" required id="p1Name" maxlength="12">
+                <select id="p1Select">
+                    <optgroup label="Traditional">
+                        <option value="X" selected>X</option>
+                        <option value="O">O</option>
+                    </optgroup>
+                    <optgroup label="Special">
+                        <option value="#">#</option>
+                        <option value="$">$</option>
+                        <option value="@">@</option>
+                    </optgroup>
+                </select>
+            </div>
+            <div class="player-two">
+                <h4>Player 2</h4>
+                <input type="text" placeholder="Your name" required id="p2Name" maxlength="12">
+                <select id="p2Select">
+                    <optgroup label="Traditional">
+                        <option value="X">X</option>
+                        <option value="O" selected>O</option>
+                    </optgroup>
+                    <optgroup label="Special">
+                        <option value="#">#</option>
+                        <option value="$">$</option>
+                        <option value="@">@</option>
+                    </optgroup>
+                </select>
+            </div>
+        </div>
+        <div class="footer">
+            <button type="submit" id="nextButton">next</button>
+        </div>
+    </form>
+    <div class="game-container" >
+        <div class="control">
+            <h3 class="title">Tic Tac Toe</h3>
+            <p class="type">Best of 3</p>
+            <div class="players">
+                <p class="sub-title">Players :</p>
+                <div class="player-information" id="player1-information" data-number="1">
+                    <p class="player-name"></p>
+                    <p class="player-symbol"></p>
+                    <div class="score">0</div>
+                    <div class="turn"></div>
+                </div>
+                <div class="player-information" id="player2-information" data-number="2">
+                    <p class="player-name"></p>
+                    <p class="player-symbol"></p>
+                    <div class="score">0</div>
+                    <div class="turn"></div>
+                </div>
+            </div>
+            <div class="rounds-container">
+                <p class="sub-title">Latest rounds :</p>
+                <ul class="rounds">No rounds played</ul>
+            </div>
+            <div class="control-footer">
+                <p>--</p>
+                <div class="buttons">
+                    <button id="restartButton">Restart</button>
+                    <button id="resetButton">Reset</button>
+                </div>
+            </div>
+        </div>
+        <div class="board">
+            <button data-position="0-0"></button>
+            <button data-position="0-1"></button>
+            <button data-position="0-2"></button>
+            <button data-position="1-0"></button>
+            <button data-position="1-1"></button>
+            <button data-position="1-2"></button>
+            <button data-position="2-0"></button>
+            <button data-position="2-1"></button>
+            <button data-position="2-2"></button>
+        </div>
+    </div>
 </body>
 </html>
